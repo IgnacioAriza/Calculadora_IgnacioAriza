@@ -1,0 +1,88 @@
+import java.util.Scanner;
+
+public class Calculadora_IgnacioAriza {
+    public static void main(String[] args) {
+        Scanner sca = new Scanner(System.in);
+        int choicefunction = 0;
+        double firstnumber = 0;
+        double secondnumber = 0;
+        double previousnumber = 0;
+        boolean hasprev = false;
+        double answer = 0;
+        while (choicefunction != 5) {
+            System.out.println("Ingrese el numero correspondiente a la funcion que desea realizar: ");
+            System.out.println("1) Suma");
+            System.out.println("2) Resta");
+            System.out.println("3) Multiplicacion");
+            System.out.println("4) Division");
+            System.out.println("5) Salir");
+            choicefunction = sca.nextInt();
+            if (choicefunction == 1) {
+                if (hasprev == false) {
+                    System.out.println("Ingrese el primer numero de la suma: ");
+                    firstnumber = sca.nextDouble();
+                } else {
+                    firstnumber = previousnumber;
+                    System.out.println("El primer numero es "+ previousnumber);
+                }
+                System.out.println("Ingrese el segundo numero de la suma: ");
+                secondnumber = sca.nextDouble();
+                answer = firstnumber + secondnumber;
+                System.out.println("El resultado de la suma es: "+ answer);
+                previousnumber = (firstnumber + secondnumber);
+                hasprev = true;
+            }
+            if (choicefunction == 2) {
+                if (hasprev == false) {
+                    System.out.println("Ingrese el primer numero de la resta: ");
+                    firstnumber = sca.nextDouble();
+                } else {
+                    firstnumber = previousnumber;
+                    System.out.println("El primer numero es "+ previousnumber);
+                }
+                System.out.println("Ingrese el segundo numero de la resta: ");
+                secondnumber = sca.nextDouble();
+                answer = firstnumber - secondnumber;
+                System.out.println("El resultado de la resta es: "+ answer);
+                previousnumber = (firstnumber - secondnumber);
+                hasprev = true;
+
+            }
+            if (choicefunction == 3) {
+                if (hasprev == false) {
+                    System.out.println("Ingrese el primer numero de la multiplicacion: ");
+                    firstnumber = sca.nextDouble();
+                } else {
+                    firstnumber = previousnumber;
+                    System.out.println("El primer numero es "+ previousnumber);
+                }
+                System.out.println("Ingrese el segundo numero de la multiplicacion: ");
+                secondnumber = sca.nextDouble();
+                answer = firstnumber * secondnumber;
+                System.out.println("El resultado de la multiplicacion es: "+ answer);
+                previousnumber = (firstnumber * secondnumber);
+                hasprev = true;
+            }
+            if (choicefunction == 4) {
+                if (hasprev == false) {
+                    System.out.println("Ingrese el primer numero de la division: ");
+                    firstnumber = sca.nextDouble();
+                } else {
+                    firstnumber = previousnumber;
+                    System.out.println("El primer numero es "+ previousnumber);
+                }
+                System.out.println("Ingrese el segundo numero de la division: ");
+                secondnumber = sca.nextDouble();
+                while (secondnumber == 0) {
+                    System.out.println("No se puede dividir por 0, por favor ingrese otro numero: ");
+                    secondnumber = sca.nextDouble();
+                }
+                answer = firstnumber / secondnumber;
+                System.out.println("El resultado de la division es: "+ answer);
+                previousnumber = (firstnumber / secondnumber);
+                hasprev = true;
+            }
+        }
+        System.out.println("Calculadora cerrada, adios!");
+    }
+}
